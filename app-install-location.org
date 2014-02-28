@@ -1,25 +1,30 @@
 #+BLOG: wordpress
 #+POSTID: 18
 #+DATE: [2014-02-28 Fri 12:28]
+#+TITLE: Change default application install location on Android
+#+AUTHOR: Nutan Nivate
+#+EMAIL: nutannivate@gmail.com
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORY: blogs
-#+TAGS:
-#+DESCRIPTION:
-#+TITLE: Change android app installation location
-#+AUTHOR: nutannivate
-#+EMAIL: nutannivate@gmail.com
+#+TAGS: android, adb
+#+KEYWORDS: android, adb, pm, sdcard
+#+DESCRIPTION: How to change application install location on android
+#+LANGUAGE:  en
 
-You can try this via ADB:
 
-	- Get the default installation location(optional)
-	  #+begin_src sh
-	  getInstallLocation
-	  #+end_src
-	- Set it to internal(/mnt/sdcard) memory via,
-	  #+begin_src sh
-	  adb shell pm setInstallLocation 1
-	  #+end_src
-	- Set it to external(/mnt/extsd) memory via,
-	  #+begin_src sh
-	  adb shell pm setInstallLocation 2
-	  #+end_src
+To change default install location using =adb=
+
+- Get the default installation location using (optional)
+  #+begin_src sh
+  adb shell pm getInstallLocation
+  #+end_src
+
+- Set install path to internal memory(=/mnt/sdcard=)
+  #+begin_src sh
+  adb shell pm setInstallLocation 1
+  #+end_src
+
+- Set install path to external memory(=/mnt/extsd=)
+  #+begin_src sh
+  adb shell pm setInstallLocation 2
+  #+end_src

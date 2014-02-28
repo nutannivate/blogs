@@ -1,34 +1,36 @@
 #+BLOG: wordpress
 #+POSTID: 21
 #+DATE: [2014-02-28 Fri 12:34]
+#+TITLE: Give write permissions to external memory(/mnt/extsd) on Android
+#+AUTHOR: Nutan Nivate
+#+EMAIL: nutannivate@gmail.com
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORY: blogs
-#+TAGS:
-#+DESCRIPTION:
-#+TITLE: Give write permissions to external memory(/mnt/extsd) on Android
-#+AUTHOR: nutannivate
-#+EMAIL: nutannivate@gmail.com
+#+TAGS: android, adb
+#+KEYWORDS: android, adb, pull, push, storage, permission
+#+DESCRIPTION: How to give write permissions to external memory(/mnt/extsd) on Android
+#+LANGUAGE:  en
 
-On a rooted device, you can modify your /system/etc/permissions/platform.xml 
-to "fix" the permissions issue. 
+On a rooted Android device, you can modify your
+=/system/etc/permissions/platform.xml= to /fix/ the permissions issue.
 	
-- Open command prompt and enter:
-#+begin_src sh
-adb pull /system/etc/permissions/platform.xml
-#+end_src
+- On the terminal, enter:
+  #+begin_src sh
+    adb pull /system/etc/permissions/platform.xml
+  #+end_src
 
-- Modify platform.xml such that media_rw is included in the 
-WRITE_EXTERNAL_STORAGE permission like this:
-#+begin_src sh
-<permission name="android.permission.WRITE_EXTERNAL_STORAGE" >
-   <group gid="sdcard_rw" />
-   <group gid="media_rw" />
-</permission>
-#+end_src
+- Modify =platform.xml= such that *media_rw* is included in
+  WRITE_EXTERNAL_STORAGE permission:
+  #+begin_src java
+    <permission name="android.permission.WRITE_EXTERNAL_STORAGE" >
+      <group gid="sdcard_rw" />
+      <group gid="media_rw" />
+    </permission>
+  #+end_src
 
-- Push the changes
-#+begin_src sh
-adb push platform.xml /system/etc/permissions/platform.xml
-#+end_src
+- Push your changes
+  #+begin_src sh
+    adb push platform.xml /system/etc/permissions/platform.xml
+  #+end_src
 
-- Restart Device
+- Finally restart your device.

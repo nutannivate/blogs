@@ -1,0 +1,20 @@
+* [[https://nutannivate.wordpress.com]]
+  Org files of my blog posts
+
+** Depends on [[https://github.com/punchagan/org2blog][org2blog]]
+** Functions
+   - To login
+     #+BEGIN_SRC emacs-lisp
+       M-x org2blog/wp-login
+     #+END_SRC emacs-lisp
+
+   - To submit a post(but do not publish)
+     #+BEGIN_SRC emacs-lisp
+       M-x org2blog/wp-post-buffer
+     #+END_SRC emacs-lisp
+
+   - To publish a post
+     #+BEGIN_SRC emacs-lisp
+       M-x org2blog/wp-post-buffer-and-publish
+     #+END_SRC emacs-lisp
+
