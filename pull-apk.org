@@ -1,40 +1,43 @@
 #+BLOG: wordpress
 #+POSTID: 14
 #+DATE: [2014-02-28 Fri 11:37]
+#+TITLE: Extract an APK from Android 
+#+AUTHOR: Nutan Nivate
+#+EMAIL: nutannivate@gmail.com
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORY: blogs
-#+TAGS:
-#+DESCRIPTION:
-#+TITLE: Pull/Extract APK from android device
-#+AUTHOR: nutannivate
-#+EMAIL: nutannivate@gmail.com
+#+TAGS: android, adb
+#+KEYWORDS: android, adb pull, pm, package, apk
+#+DESCRIPTION: How to pull or extract an installed apk from android device
+#+LANGUAGE:  en
 
-The following sequence of commands works on both rooted and a non-rooted 
-device:
+** Follow the steps to pull or extract an installed apk from android device. This works on 'rooted' as well as un-rooted device.
+   - Determine the package name of the application. The naming
+     convention is "com.organization-name.app-name", for
+     e.g. "com.android.gtalk". Type:
+     #+begin_src sh
+       adb shell pm list packages
+     #+end_src
 
-	- Determine the package name of the app, e.g. "com.example.someapp". 
-	  Skip this step if you already know the package name.
-	  #+begin_src sh
-	  adb shell pm list packages
-	  #+end_src
+     Look through the list of package names and try to find a match
+     between the app name and the package name. This should be simple
+     in most cases, but sometimes the package name can be completely
+     unrelated to the app name. In such case visit the app on
+     [[https://play.google.com][play.google.com]] and scan the URL. For example in the URL
+     [[https://play.google.com/store/apps/details?id%3Dcom.kiloo.subwaysurf&hl%3Den][https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&hl=en]],
+     the package name is /com.kiloo.subwaysurf/.
 
-	- Look through the list of package names and try to find a match between the 
-	  app in question and the package name. This is usually easy, but note that 
-	  the package name can be completely unrelated to the app name. If you can't 
-	  recognize the app from the list of package names, try finding the app 
-	  in Google Play using a browser. The URL for an app in Google Play contains 
-	  the package name.
+   - Now get the full path of the APK file using:
+     #+begin_src sh
+       adb shell pm path com.example.someapp
+     #+end_src
 
-	- Get the full path name of the APK file for the desired package.
-	  #+begin_src sh
-	  adb shell pm path com.example.someapp
-	  #+end_src
+    The output will look something like this: 
+     #+BEGIN_SRC sh
+       package:/data/app/com.example.someapp-2.apk
+     #+END_SRC sh
 
-	- The output will look something like this: 
-	  package:/data/app/com.example.someapp-2.apk
-
-	- Pull the APK file from the Android device to the development box.
-	  #+begin_src sh
-	  adb pull /data/app/com.example.someapp-2.apk
-	  #+end_src
-
+   - Pull the APK file from the Android device using:
+     #+begin_src sh
+       adb pull /data/app/com.example.someapp-2.apk
+     #+end_src
