@@ -1,0 +1,34 @@
+#+BLOG: wordpress
+#+POSTID: 21
+#+DATE: [2014-02-28 Fri 12:34]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS:
+#+DESCRIPTION:
+#+TITLE: Give write permissions to external memory(/mnt/extsd) on Android
+#+AUTHOR: nutannivate
+#+EMAIL: nutannivate@gmail.com
+
+On a rooted device, you can modify your /system/etc/permissions/platform.xml 
+to "fix" the permissions issue. 
+	
+- Open command prompt and enter:
+#+begin_src sh
+adb pull /system/etc/permissions/platform.xml
+#+end_src
+
+- Modify platform.xml such that media_rw is included in the 
+WRITE_EXTERNAL_STORAGE permission like this:
+#+begin_src sh
+<permission name="android.permission.WRITE_EXTERNAL_STORAGE" >
+   <group gid="sdcard_rw" />
+   <group gid="media_rw" />
+</permission>
+#+end_src
+
+- Push the changes
+#+begin_src sh
+adb push platform.xml /system/etc/permissions/platform.xml
+#+end_src
+
+- Restart Device

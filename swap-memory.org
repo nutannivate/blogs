@@ -1,0 +1,35 @@
+#+BLOG: wordpress
+#+POSTID: 23
+#+DATE: [2014-02-28 Fri 12:47]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS:
+#+DESCRIPTION:
+#+TITLE: Swapping Internal and External Memory on Android device
+#+AUTHOR: nutannivate
+#+EMAIL: nutannivate@gmail.com
+
+** Why increase the internal memory?
+	The android device comes with internal storage depending on your model, 
+	with the option of adding a microSD card for more space. 
+	Only problem is, everything automatically downloads to your internal storage.
+	Low internal memory size is just not enough to keep you going now that apps 
+	are taking more and more memory out of your phone.
+	
+** What can we do to increase this space?
+	Developers have figured out a way to swap the internal memory with the 
+	external memory card. This means that you can use a large external memory 
+	card as your internal memory instead. The internal memory would then be 
+	treated as the external memory for files.
+	
+** Devices with a Swap Memory Mod
+	First, you need to download a special file depending on your smartphone. 
+	While all Android devices with external memory support may be able to do 
+	this, not all devices capable have a mod readily available. As you may have 
+	guessed, you need root access to swap your memory. Follow these steps,
+	
+        - Copy .zip file onto your external SD.
+        - Go into recovery mode.
+        - Flash the .zip.
+        - Reboot.
+        - DONE.

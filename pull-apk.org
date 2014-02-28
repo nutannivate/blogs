@@ -1,0 +1,40 @@
+#+BLOG: wordpress
+#+POSTID: 14
+#+DATE: [2014-02-28 Fri 11:37]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS:
+#+DESCRIPTION:
+#+TITLE: Pull/Extract APK from android device
+#+AUTHOR: nutannivate
+#+EMAIL: nutannivate@gmail.com
+
+The following sequence of commands works on both rooted and a non-rooted 
+device:
+
+	- Determine the package name of the app, e.g. "com.example.someapp". 
+	  Skip this step if you already know the package name.
+	  #+begin_src sh
+	  adb shell pm list packages
+	  #+end_src
+
+	- Look through the list of package names and try to find a match between the 
+	  app in question and the package name. This is usually easy, but note that 
+	  the package name can be completely unrelated to the app name. If you can't 
+	  recognize the app from the list of package names, try finding the app 
+	  in Google Play using a browser. The URL for an app in Google Play contains 
+	  the package name.
+
+	- Get the full path name of the APK file for the desired package.
+	  #+begin_src sh
+	  adb shell pm path com.example.someapp
+	  #+end_src
+
+	- The output will look something like this: 
+	  package:/data/app/com.example.someapp-2.apk
+
+	- Pull the APK file from the Android device to the development box.
+	  #+begin_src sh
+	  adb pull /data/app/com.example.someapp-2.apk
+	  #+end_src
+
