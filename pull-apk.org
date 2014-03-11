@@ -14,7 +14,7 @@
 ** Follow the steps to pull or extract an installed apk from android device. This works on 'rooted' as well as un-rooted device.
    - Determine the package name of the application. The naming
      convention is "com.organization-name.app-name", for
-     e.g. "com.android.gtalk". Type:
+     example /com.android.gtalk/. Type:
      #+begin_src sh
        adb shell pm list packages
      #+end_src
@@ -23,7 +23,7 @@
      between the app name and the package name. This should be simple
      in most cases, but sometimes the package name can be completely
      unrelated to the app name. In such case visit the app on
-     [[https://play.google.com][play.google.com]] and scan the URL. For example in the URL
+     [[https://play.google.com][play.google.com]] and scan the URL. For example, in the URL
      [[https://play.google.com/store/apps/details?id%3Dcom.kiloo.subwaysurf&hl%3Den][https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&hl=en]],
      the package name is /com.kiloo.subwaysurf/.
 

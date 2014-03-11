@@ -1,0 +1,230 @@
+#+BLOG: nutannivate.wordpress.com
+#+POSTID: 43
+#+DATE: [2014-03-04 Tue 18:20]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: android
+#+DESCRIPTION: How to flash custom rom (android v2.3) on micromax A45(Superfone Punk)
+#+TITLE: Flash Xtream mod-2 on Micromax A45(Superfone Punk)
+#+AUTHOR:    Nutan Nivate
+#+EMAIL:     nutannivate@gmail.com
+#+DATE:      2014-03-04 Tue
+#+KEYWORDS: micromax, a45, xtream mode-2, superfone punk, flash
+#+LANGUAGE:  en
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+*Xtream mod-2* is based on Android 2.3.6(Gingerbread) but it is better
+than Micromax's stock ROM. No Google apps need to be installed. Make
+sure you satisfy below requirements and download essential files from
+/Download/ section.
+
+#+HTML: <!--more-->
+
+** Prerequisite
+    1. Windows XP/Vista/7.
+    2. Make sure your phone's battery is at least 70% charged.
+
+** Install USB drivers
+   - Make sure your Phone is connected to PC via USB cable.
+   - Extract =MT65x3_USB_VCOM_drivers.7z= file and install the driver
+     file =InstallDriver.exe= .
+   - Disconnect your phone after the driver is successfully installed.
+     
+     #+CAPTION: USB driver installation
+     #+NAME: USB driver installation
+     #+ATTR_HTML: alt="USB driver installation"
+     #+ATTR_HTML: width="600" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/usb-driver-installation.png]]
+	
+** Install CWM-recovery
+   - Extract =a45recovery-cwm.zip=, =SP_Flash_Tool_exe_v2.1121.01.rar=
+     and =A45-Root-Andro-park.rar= compressed files.
+   - Open =SP_Flash_Tool_exe_v2.1121.01= directory and click on
+     =Flash_Tool.exe= file to start the tool.
+   - Enable =USB Mode= under /Options/ menu.
+	
+     #+CAPTION: SP flash tool window
+     #+NAME: SP flash tool
+     #+ATTR_HTML: alt="SP flash tool window"
+     #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/sp-flash.png]]
+
+   - Now click =Scatter-loader= button and choose
+     =MT6573_Android_scatter.txt= file. This should pop-up a dialog
+     window with a *Hint* message. Click =OK= to close this window.
+
+     #+CAPTION: SP flash: Hint dialog window
+     #+NAME: Hint dialog window
+     #+ATTR_HTML: alt="SP flash tool window"
+     #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/hint-dialog.png]]
+
+	
+   - Check =RECOVERY= from loaded scatter file and browse
+     =a45recovery-cwm.img= image file.
+	
+     #+CAPTION: SP flash: Select recovery image 
+     #+NAME: Select recovery image 
+     #+ATTR_HTML: alt="SP flash: Select recovery image "
+     #+ATTR_HTML: width="600" height="400" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/sp-flash-recovery.png]]
+	
+   - Turn off the phone and remove the battery. Wait for 10 seconds
+     and re-insert the battery. *Do not* power ON the phone.
+   - Within SP flash tool, click on the =Download= button to start the
+     download. The countdown should start, now connect the phone via
+     USB cable(/The phone is still switched off/).
+   - This should flash the recovery image. You will see the progress
+     bar in /yellow/ color.
+   - After a successful flash, a pop-up window with /green/ circle
+     should appear.
+	
+     #+CAPTION: SP flash: Download OK 
+     #+NAME: Download OK 
+     #+ATTR_HTML: alt="SP flash: Download OK"
+     #+ATTR_HTML: width="600" height="400" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/sp-flash-download-ok.png]]
+	
+   - Disconnect your phone from PC and close SP flash application.
+   - At this step CWM-recovery should be installed on phone.
+	
+** Root A45 using UnlockRoot
+   - Restart your phone, by removing and re-inserting the battery.
+   - Enable debugging mode from =Settings -> Applications ->
+     Development= and check =Enable Debugging=.
+   - Now attach your phone using USB cable.
+   - Extract =UnlockRoot_v2.3.rar= file and install the application.
+   - Click the green button which says *Root*.
+	
+     #+CAPTION: Unlock Root window
+     #+NAME: Unlock Root window
+     #+ATTR_HTML: alt="Unlock Root window"
+     #+ATTR_HTML: width="600" height="450" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/unlockroot.png]]
+	
+   - The application will prompt for additional driver installation,
+     click =yes=. This will install =adb= (Android Debug Bridge).
+   - Finally the application will root the phone and prompt for
+     reboot. Click =yes=.
+   - After a reboot, Verify the existence of an additional application
+     called =Superuser= in application list. If the application
+     exists, which means that your phone is rooted.
+	
+** Install custom ROM (Xtream-Mod 2)
+   - Switch off your phone.
+   - Copy =Xtream-Mod 2(Sahil11).zip= file on the SD-card and insert
+     it in your phone. *Do not* extract this file.
+   - Now press =volume UP + volume DOWN + Power key= keys at the same
+     time to enter in to recovery mode.
+   - You will see two options
+     1. =Recovery mode=
+     2. =Factory mode=
+     
+     #+CAPTION: CWM options
+     #+NAME: CWM options
+     #+ATTR_HTML: alt="CWM options"
+     #+ATTR_HTML: width="300" height="440" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/cwm-options.jpg]]
+     
+   - Press =volume UP= key to enter into recovery mode.
+
+     #+CAPTION: CWM menu
+     #+NAME: CWM menu
+     #+ATTR_HTML: alt="CWM menu"
+     #+ATTR_HTML: width="300" height="440" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/cwm-recovery-menu.jpg]]
+     
+   - Navigation keys
+     * =Vol Up= - Go up in the menu list
+     * =Vol Down= - Go down in the menu list
+     * =Power button= - Select an item from the menu list
+
+   - First and foremost it is a good idea to backup your existing
+     ROM. Select =backup and restore= and select =backup= to take the
+     backup of your existing ROM. Wait for few minutes until the
+     backup is completed.
+     
+     #+CAPTION: Backup and Restore
+     #+NAME: Backup and Restore
+     #+ATTR_HTML: alt="Backup and Restore"
+     #+ATTR_HTML: width="300" height="440" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/cwm-backup.jpg]]
+     
+   - Select =wipe data/factory reset= and select =yes=.
+   - Also do =wipe cache partition=.
+   - Also visit =advanced= menu and select =wipe dalvik cache=.
+   - Also do the same for =wipe battery stats=.
+   
+     #+CAPTION: CWM Wipe
+     #+NAME: CWM Wipe
+     #+ATTR_HTML: alt="CWM Wipe"
+     #+ATTR_HTML: width="300" height="440" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/cwm-wipe-dalvic-cache.jpg]]
+   
+   - Now from the main menu, select =apply update from sdcard= and
+     choose =Xtream-Mod 2(Sahil11).zip= file.
+   - Wait till the ROM is flashed and reboot your phone.
+   
+     #+CAPTION: About phone
+     #+NAME: About phone
+     #+ATTR_HTML: alt="About phone"
+     #+ATTR_HTML: width="300" height="440" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/about-phone.jpg]]
+     
+     #+CAPTION: Home screen
+     #+NAME: Home screen
+     #+ATTR_HTML: alt="Home screen"
+     #+ATTR_HTML: width="300" height="440" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./a45-screenshots/home-screen.jpg]]
+
+** Downloads
+   1. [[http://www.4shared-china.com/get/SfK7mdLy/MT65x3_USB_VCOM_drivers.html][MT65x3_USB_VCOM_drivers.7z]]
+   2. [[http://www.mediafire.com/?2bd9c888k21ll3g][SP_Flash_Tool_exe_v2.1121.01.rar]]
+   3. [[http://www.mediafire.com/download/rbdm97ub879p48n/A45-Root-Andro-park.rar][A45-Root-Andro-park.rar]]
+   4. [[http://androidforums.com/attachments/a45-punk-all-things-root/41942d1351273595-install-clockwork-mod-cwm-recovery-in-micromax-a45-100-working-a45recovery-cwm.zip][a45recovery-cwm.zip]]
+   5. [[http://www.mediafire.com/download/v9232vek0wv1twi/UnlockRoot_v2.3.rar][UnlockRoot_v2.3.rar]]
+   6. [[http://www.mediafire.com/download/cr4nmmdc1ld38a7/Xtreme-Mod+2%28Sahil11%29.zip][Xtream-Mod 2.zip]]
+   
+
+#+./a45-screenshots/usb-driver-installation.png http://nutannivate.files.wordpress.com/2014/03/wpid-usb-driver-installation5.png
+#+./a45-screenshots/sp-flash.png http://nutannivate.files.wordpress.com/2014/03/wpid-sp-flash5.png
+#+./a45-screenshots/hint-dialog.png http://nutannivate.files.wordpress.com/2014/03/wpid-hint-dialog5.png
+#+./a45-screenshots/sp-flash-recovery.png http://nutannivate.files.wordpress.com/2014/03/wpid-sp-flash-recovery5.png
+#+./a45-screenshots/sp-flash-download-ok.png http://nutannivate.files.wordpress.com/2014/03/wpid-sp-flash-download-ok5.png
+#+./a45-screenshots/unlockroot.png http://nutannivate.files.wordpress.com/2014/03/wpid-unlockroot5.png
+#+./a45-screenshots/cwm-options.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-cwm-options.jpg
+#+./a45-screenshots/cwm-recovery-menu.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-cwm-recovery-menu.jpg
+#+./a45-screenshots/cwm-backup.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-cwm-backup.jpg
+#+./a45-screenshots/cwm-wipe-dalvic-cache.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-cwm-wipe-dalvic-cache.jpg
+#+./a45-screenshots/about-phone.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-about-phone.jpg
+#+./a45-screenshots/home-screen.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-home-screen.jpg
