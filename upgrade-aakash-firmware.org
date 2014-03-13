@@ -1,15 +1,15 @@
 #+BLOG: nutannivate.wordpress.com
-#+POSTID: 113
+#+POSTID: 211
 #+DATE: [2014-03-07 Fri 13:12]
 #+CATEGORY: blogs
 #+TAGS: android
-#+DESCRIPTION: How to flash firmare on Aakash tablet(AllWinner)
-#+TITLE: Upgrade Aakash from 4.0.3 to 4.1.1
+#+DESCRIPTION: How to flash firmware on Aakash tablet(AllWinner A13)
+#+TITLE: Upgrade Aakash tablet from ICS to Jelly Bean
 #+AUTHOR:    Nutan Nivate
 #+EMAIL:     nutannivate@gmail.com
-#+KEYWORDS: aakash tablet, Allwinner a13, firmware, phoenixcard, flash, root
+#+KEYWORDS: aakash tablet, AllWinner A13, jellybean, firmware, phoenixcard, flash, root
 #+LANGUAGE:  en
-#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   toc:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -17,61 +17,60 @@
 #+LINK_HOME: 
 #+XSLT:
 
-* Prerequisite
-   1. Windows XP/Vista/7.
-   2. Linux
+** Prerequisite
+   1. Windows XP/Vista/7 system.
+   2. GNU/Linux system.
    3. Make sure your tablet battery is at least 70% charged.
-   4. Minimum 2GB MicroSD card
-	
-* Install JellyBean ROM using firmware
+   4. Minimum 2GB Micro-SD card
 
-** Format MicroSD card
-   
-   - Format MicroSD card with =FAT32= file system.
+#+HTML: <!--more-->
+
+** Install Jelly Bean ROM using firmware
+*** Format Micro-SD card
+   - Format Micro-SD card with =FAT32= file system.
 
    #+CAPTION: Format sdcard
    #+NAME: Format sdcard
    #+ATTR_HTML: alt="Format sdcard"
-   #+ATTR_HTML: style="border:4px solid gray;"
+   #+ATTR_HTML: width="350" height="460" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/format-sdcard.png]]
 	
-** Download and install PhoenixCard software
-   - Download and extract =PhoenixCard-v3062.zip= on your windows machine.
+*** Download and install PhoenixCard software
+   - Download and extract =PhoenixCard-v3062.zip= on windows machine.
    - Open =PhoenixCardV3062= directory and execute =PhoenixCard.exe= file.
 
-   #+CAPTION: PhoenixCard
+   #+CAPTION: PhoenixCard.exe
    #+NAME: PhoenixCard
    #+ATTR_HTML: alt="PhoenixCard"
-   #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+   #+ATTR_HTML: width="650" height="500" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/run-phoenixCard.png]]
 
-
-** Load firmware image in PhoenixCard and Burn it on MicroSD card
-
-   - Download and extract =Q8_v12.zip=.
-   - Open PhoenixCard application and click on =Diskcheck= to Check
-     the MicroSD card status and available space. DiskCheck will
-     detect MicroSD Card port (like J or K drive) which will show
-     very next to Diskcheck option.
-   - Click on =Img File= and browse =Q8_v12.img= from the above
-     extracted file.
+*** Burn an image to Micro-SD card using PhoenixCard
+    - Download and extract =Q8_v12.zip= file.
+    - Open PhoenixCard application, click on *Diskcheck* button to
+      check Micro-SD card status and available space. DiskCheck should
+      detect Micro-SD card with drive name *J* or *K* depending on
+      your hard-drives.
+    - Now click on *Img File* button and browse =Q8_v12.img= file from
+      the above extracted directory.
 	
-   #+CAPTION: Select Q8_v12.img
+   #+CAPTION: PheonixCard: Select Q8\_v12.img file
    #+NAME: Select Q8_v12.img
    #+ATTR_HTML: alt="Select Q8_v12.img"
-   #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+   #+ATTR_HTML: width="550" height="460" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/phoenixCard.png]]
 
 	
-   - Click on =Format to Normal= to format the sdcard one more time.
+    - Then click on =Format to Normal= button to format the sdcard
+      using this application.
 
-   #+CAPTION: Format to Normal
+   #+CAPTION: PheonixCard: 'Format to Normal' info dialog
    #+NAME: Format to Normal
    #+ATTR_HTML: alt="Format to Normal"
    #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
@@ -79,152 +78,156 @@
      
    [[./aakash-screenshots/format-sd-from-phoenix.png]]
 	
-   - Finally press the =Burn= button. Upgrading file will start burning on 
-     MicroSD Card.
+    - Finally click =Burn= button to start burning an image to Micro-SD
+      card.
 
-   #+CAPTION: Burn sdcard
+   #+CAPTION: PheonixCard: Burn sdcard
    #+NAME: Burn sdcard
    #+ATTR_HTML: alt="Burn sdcard"
-   #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+   #+ATTR_HTML: width="500" height="460" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/start-burn-sdcard.png]]
 	
-   - Wait until the =Burn end= message appears on the screen. 
+    - Wait until the =Burn End..= message appears on the screen.
 
-   #+CAPTION: Burn end
+   #+CAPTION: PheonixCard: Burn end..
    #+NAME: Burn end
    #+ATTR_HTML: alt="Burn end"
-   #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+   #+ATTR_HTML: width="590" height="460" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/burn-sd-complete.png]]
 	
-   - After the burn process, safely eject the MicroSD card from PC.
+    - After the burn process, you can safely remove the Micro-SD card.
 	
-** Step 4. Put the tablet in flash mode 
-	
-   - Turn your android tablet =OFF= and insert the MicroSD card in it.
-	
-   - Press the =Power= button on. A =red= progress bar will appear on the screen 
-     with pregress in =green= color.
+*** Flash mode
+    - /Flash mode/ flashes an image from Micro-SD card to ROM.
+    - Turn off Android tablet and insert the Micro-SD card in SDcard slot.
+    - Now press the =Power= button. A progress bar with green color
+      will appear on the screen.
 
-   #+CAPTION: Flash firmware
-   #+NAME: Flash firmware
-   #+ATTR_HTML: alt="Flash firmware"
-   #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+   #+CAPTION: Flashing of ROM in progress
+   #+NAME: Progress bar
+   #+ATTR_HTML: alt="Progress bar"
+   #+ATTR_HTML: width="600" height="400" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/start-flash.jpg]]
 	
-   - Wait till the ROM is flashed. You will get =CARD OK= message on the 
-     tablet screen, that means you have successfully flashed firmware on 
-     your tablet.
+   - After the ROM is flashed, =CARD Ok= message should appear on the
+     tablet screen.
 
-   #+CAPTION: Flash firmware done
-   #+NAME: Flash firmware done
-   #+ATTR_HTML: alt="Flash firmware done"
-   #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+   #+CAPTION: /CARD OK/ message
+   #+NAME: card ok
+   #+ATTR_HTML: alt="card ok"
+   #+ATTR_HTML: width="600" height="400" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/flash-done.jpg]]
 	
-   - Immediately pull MicroSD card out from Tablet Slot. Turn your Android 
-     tablet =ON=. 
+   - Immediately remove the Micro-SD card from the tablet and turn it
+     ON.
 	
-   - Congrats your android tablet version is Upgraded.
+   - You should see Android 4.1.1 version newly installed under
+     =Settings= -> =About tablet=.
 
-   #+CAPTION: JellyBean on Aakash(a13) 
-   #+NAME: JellyBean on Aakash(a13)
+   #+CAPTION: JellyBean on Aakash(A13) 
+   #+NAME: JellyBean on Aakash(A13)
    #+ATTR_HTML: alt="JellyBean on Aakash(a13)"
-   #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+   #+ATTR_HTML: width="600" height="390" style="border:4px solid gray;"
    #+ATTR_HTML: style="float:center;"
      
    [[./aakash-screenshots/JB-on-aakash.png]]
 
-* Root your tablet
-      
-  
-   ** Tablets upgraded using above firmware are *not rooted*, so you will 
-      need to root it manually. Follow below steps to root your tablet:
-     
-      - Connect your tablet to *Linux* PC using USB cable. Make sure 
-        that =ADB-Debugging= is =enabled=.
+** How to root the tablet
+   - Connect your tablet to *GNU/Linux* system using via USB
+     cable. Make sure that =Debugging mode= is =enabled= under
+     =Settings= -> =Developers=.
+   - Download and extract =Root_with_Restore_by_Bin4ry_v18.rar= file
+     on Linux system.
+   - Open the =terminal= and login as *root* user.
+     #+begin_src sh
+     sudo -s
+     #+end_src
+     This should prompt for root password.
+   - Change to =Bin4ry= directory and execute =Run.me= file.
+     #+begin_src sh
+       cd Bin4ry
+     #+end_src
 
-      - Download and extract =Root_with_Restore_by_Bin4ry_v18.rar=.
+     #+begin_src sh
+       ./Run.me
+     #+end_src
 
-      - Open the =terminal=. Become *root* on Linux using command:
-        #+begin_src sh
-        sudo -s
-        #+end_src
-
-      - Enter the root password.
-
-      - Change to =Bin4ry= directory and enter following commands:
-        #+begin_src sh
-        ./Run.me
-        #+end_src
-
-      - A menu will pop-up with 3 options:
+   - A menu will pop-up with 3 options,
+     1) Normal
+     2) Special(for example: Sony Tablets S, Medion Lifetab)
+     3) Unroot
 	
-      - Choose =1= and press =Enter key=.
+   - Choose the *first* option by typing =1= and press =Enter=.
 
-	#+CAPTION: Root Aakash using Bin4ry
-        #+NAME: Root Aakash using Bin4ry
-        #+ATTR_HTML: alt="Root Aakash using Bin4ry"
-        #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
-        #+ATTR_HTML: style="float:center;"
+     #+CAPTION: Root Aakash using /Bin4ry/
+     #+NAME: Root Aakash using Bin4ry
+     #+ATTR_HTML: alt="Root Aakash using Bin4ry"
+     #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
      
-        [[./aakash-screenshots/root-aakash.png]]
+     [[./aakash-screenshots/root-aakash.png]]
 	
-      - Wait for a moment . On your aakash screen a message will come up asking 
-        you to restore. Touch on the =Restore my data= option.
+   - Wait till *Full restore* window pops up. Select =Restore my data=.
 
-        #+CAPTION: Restore data
-        #+NAME: Restore data
-        #+ATTR_HTML: alt="Restore data"
-        #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
-        #+ATTR_HTML: style="float:center;"
+     #+CAPTION: Restore data
+     #+NAME: Restore data
+     #+ATTR_HTML: alt="Restore data"
+     #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
      
-        [[./aakash-screenshots/restore-data.png]]
+     [[./aakash-screenshots/restore-data.png]]
 
-      - Wait till the tablet reboots.
+   - Allow the tablet to reboot.
 
-      - Now a message will come on the terminal saying that you have successfully
-        rooted.
-	
-	#+CAPTION: Root Aaaksh tablet
-        #+NAME: Root Aaaksh tablet
-        #+ATTR_HTML: alt="Root Aaaksh tablet"
-        #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
-        #+ATTR_HTML: style="float:center;"
+     #+CAPTION: Bin4ry: Terminal messages.
+     #+NAME: Bin4ry: Terminal messages.
+     #+ATTR_HTML: alt="Bin4ry: Terminal messages"
+     #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
      
-        [[./aakash-screenshots/root-done.png]]
+     [[./aakash-screenshots/root-done.png]]
  
-      - Press any key to exit.
+   - Now press any key to exit.
 
-      - Verify the existence of an additional application called =SuperSU= 
-        in application list. If the application exists, which means that your 
-        tablet is rooted.
+   - Verify the existence of an additional application called
+     =SuperSU= which confirms that the tablet is rooted.
 
-* Downloads
-
-   - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTNDgxS1ZOZk9GZTg][PhoenixCard_v3063.zip]]
-	
+** Downloads
+   - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTNDgxS1ZOZk9GZTg][PhoenixCard\_v3063.zip]]
    - [[https://drive.google.com/uc?id=0BwmlxsGXffwTMmtmTmJ2Nmp0TEU&export=download][Allwinner-A13-Q8-v12-Tablet android Firmware]]
+   - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTNDgxS1ZOZk9GZTg][Root\_with\_Restore\_by\_Bin4ry\_v18.rar]] 
 
-   - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTNDgxS1ZOZk9GZTg][Root_with_Restore_by_Bin4ry_v18.rar]] 
 
+#  LocalWords:  Allwinner
 
-#+./aakash-screenshots/format-sdcard.png http://nutannivate.files.wordpress.com/2014/03/wpid-format-sdcard5.png
-#+./aakash-screenshots/run-phoenixCard.png http://nutannivate.files.wordpress.com/2014/03/wpid-run-phoenixcard5.png
-#+./aakash-screenshots/phoenixCard.png http://nutannivate.files.wordpress.com/2014/03/wpid-phoenixcard5.png
-#+./aakash-screenshots/format-sd-from-phoenix.png http://nutannivate.files.wordpress.com/2014/03/wpid-format-sd-from-phoenix5.png
-#+./aakash-screenshots/start-burn-sdcard.png http://nutannivate.files.wordpress.com/2014/03/wpid-start-burn-sdcard5.png
-#+./aakash-screenshots/burn-sd-complete.png http://nutannivate.files.wordpress.com/2014/03/wpid-burn-sd-complete5.png
-#+./aakash-screenshots/start-flash.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-start-flash3.jpg
-#+./aakash-screenshots/flash-done.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-flash-done12.jpg
-#+./aakash-screenshots/JB-on-aakash.png http://nutannivate.files.wordpress.com/2014/03/wpid-jb-on-aakash5.png
-#+./aakash-screenshots/root-aakash.png http://nutannivate.files.wordpress.com/2014/03/wpid-root-aakash5.png
-#+./aakash-screenshots/restore-data.png http://nutannivate.files.wordpress.com/2014/03/wpid-restore-data5.png
-#+./aakash-screenshots/root-done.png http://nutannivate.files.wordpress.com/2014/03/wpid-root-done5.png
+#+./aakash-screenshots/format-sdcard.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-format-sdcard6.png
+#+./aakash-screenshots/run-phoenixCard.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-run-phoenixcard6.png
+#+./aakash-screenshots/phoenixCard.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-phoenixcard6.png
+#+./aakash-screenshots/format-sd-from-phoenix.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-format-sd-from-phoenix6.png
+#+./aakash-screenshots/start-burn-sdcard.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-start-burn-sdcard6.png
+#+./aakash-screenshots/burn-sd-complete.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-burn-sd-complete6.png
+#+./aakash-screenshots/start-flash.jpg
+http://nutannivate.files.wordpress.com/2014/03/wpid-start-flash.jpg
+#+./aakash-screenshots/flash-done.jpg
+http://nutannivate.files.wordpress.com/2014/03/wpid-flash-done1.jpg
+#+./aakash-screenshots/JB-on-aakash.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-jb-on-aakash6.png
+#+./aakash-screenshots/root-aakash.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-root-aakash6.png
+#+./aakash-screenshots/restore-data.png
+http://nutannivate.files.wordpress.com/2014/03/wpid-restore-data6.png
+#+./aakash-screenshots/root-done.png http://nutannivate.files.wordpress.com/2014/03/wpid-root-done6.png

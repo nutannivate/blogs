@@ -1,0 +1,308 @@
+#+BLOG: nutannivate.wordpress.com
+#+POSTID: 225
+#+DATE: [2014-03-07 Fri 13:03]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: android, cyanogenmod
+#+DESCRIPTION: cyanogenmod 10 for Aakash tablet
+#+TITLE: Install CyanogenMod-10 on Aakash tablet
+#+AUTHOR:    Nutan Nivate
+#+EMAIL:     nutannivate@gmail.com
+#+KEYWORDS: aakash tablet, Allwinner a13, cyanogenmod, CWM, cm10
+#+LANGUAGE:  en
+#+OPTIONS:   toc:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+
+** Prerequisite
+   - Make sure your tablet is at least 70% charged.
+
+
+#+HTML: <!--more-->
+
+** /Warning/
+   - This ROM is /not/ compatible with fastJB v2 ROM. You need to have
+     a stock ROM or fastJB v1 ROM for all modules to work.
+
+** Before you flash
+*** Find touchscreen module
+    - Using =adb shell= or in a =Terminal Emulator= app, type
+      #+BEGIN_SRC sh
+        getevent
+      #+END_SRC sh
+
+    - Check =/dev/input/event*= entry of the tablet.
+      - For =gt811=, the entry should be =/dev/input/event3=
+      - For =gslx680=, the entry should be =/dev/input/event4=
+      - /Note/: Your results may differ.
+
+*** Find Camera module
+    - Similarly, type
+      #+begin_src sh
+        lsmod
+      #+end_src
+
+    - In the list of loaded modules, a =Camera Module= has =1= after
+      module name. For example:
+      #+begin_src sh
+        gc0308 16888 1 - Live 0x00000000
+      #+end_src
+      where =gc0308= is the camera module name. Again, you result may
+      differ.
+
+*** Find G-sensor module
+    - To find G-sensor module, type
+      #+begin_src sh
+        getevent
+      #+end_src
+
+    - Check for =event2= as in =/dev/input/event2=. The module name
+      will be =mxc622x=.
+
+** Install ClockWorkRecovey(CWM) and backup existing ROM
+*** Download appropriate CWM version for your tablet
+**** A10 or A13? 
+     - Using =adb shell= or in a =Terminal Emulator= app, type
+       #+begin_src sh
+         cat /proc/cpuinfo
+       #+end_src 
+      
+     - Search for sunxi entries:
+       + sun4i => A10
+       + sun5i => A13
+       + Others: then do not follow these steps
+
+**** Do I have 9, 10, or 11 partitions? 
+   - Check for available partitions
+     #+begin_src sh
+       cat /proc/partitions
+     #+end_src
+
+   - List of =nand*= entries
+     * nandi => partition 9
+     * nandj => partition 10
+     * nandk => partition 11
+     
+   - If you choose the /wrong partition/, CWM won't be able to mount
+     your internal SD card (=/emmc=). 
+
+   - If your device has 8 or less partitions(i.e. the last partition
+     is =nandh=), then /do not install/ CWM from download list
+     mentioned below.     
+
+*** Install ClockWorkRecovey
+**** Using Recovery mode  
+   - Copy the zip file to your internal or external SD card. 
+   - Also download and copy =cm_a13_20130703.zip= and
+     =gapps-jb-20121011-signed.zip= files.
+   - Reboot into =Recovery=, then choose =install zip from sdcard=.
+
+**** From a Running System
+   - Unzip the file and copy =recovery.img=, =install-recovery.sh= and
+     =reboot-recovery.sh= files to internal or external SD card.
+
+   - Using =adb shell= or a =Terminal emulator app=, change the
+     directory to =/sdcard= or =/extsd=.
+
+     #+BEGIN_SRC sh
+       cd /sdcard/
+     #+END_SRC sh
+
+     or
+
+     #+BEGIN_SRC sh
+       cd /mnt/extsd/
+     #+END_SRC sh
+
+   - If you're using =Terminal emulator app=, login as root using
+     #+BEGIN_SRC sh
+       su
+     #+END_SRC sh
+
+   - /Grant/ superuser access when prompted
+
+     #+CAPTION: Grant superuser permission
+     #+NAME: Grant root user permission
+     #+ATTR_HTML: alt=" Grant root user permission"
+     #+ATTR_HTML: width="800" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./aakash-cm-screenshots/grant-perm.png]]
+
+   - Now type,
+     #+begin_src sh
+       sh install-recovery.sh
+     #+end_src 
+     and press ENTER. 
+
+     #+CAPTION: Install recovery
+     #+NAME: Install recovery
+     #+ATTR_HTML: alt="Install recovery"
+     #+ATTR_HTML: width="800" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./aakash-cm-screenshots/install-recovery.png]]
+
+*** Boot into (CWM) Recovery
+**** Method 1
+     - Make sure that the tablet is switched off. Press and hold both
+       /Volume UP/ and /Power/ keys. It may take 10 seconds or more
+       for boot logo to appear.
+	
+**** Method 2
+     - Visit the directory to where you stored the CWM files and type
+
+     #+begin_src sh
+       sh reboot-recovery.sh
+     #+end_src
+     
+     #+CAPTION: Reboot in to recovery
+     #+NAME: Reboot in to recovery
+     #+ATTR_HTML: alt="Reboot in to recovery"
+     #+ATTR_HTML: width="800" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/reboot-recovery.png]]
+
+   - This will reboot in to recovery mode.
+	
+*** Backup existing ROM
+   - Within recovery mode, Select =backup and restore= -> =backup= to
+     backup your existing ROM. Wait for few minutes for the process to
+     complete.
+
+** Install CyanogenMod ROM
+   - Assuming you have performed the backup, and you are in CWM's
+     recovery menu.
+
+     #+CAPTION: Recovery menu
+     #+NAME: Recovery menu
+     #+ATTR_HTML: alt="Recovery menu"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./aakash-cm-screenshots/recovery-menu.jpg]]
+
+   - Select =wipe data/factory reset= and say =yes= (Use Volume UP/DOWN keys).
+    
+     #+CAPTION: Wipe data/factory reset
+     #+NAME: Wipe data/factory reset
+     #+ATTR_HTML: alt="Wipe data/factory reset"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./aakash-cm-screenshots/wipe-data.jpg]]
+
+   - Do the same for =wipe cache partition= and =wipe dalvik cache= in
+     /advanced/ menu.
+
+     #+CAPTION: Wipe dalvik cache
+     #+NAME: Wipe dalvik cache
+     #+ATTR_HTML: alt="Wipe dalvik cache data/factory reset"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/wipe-dalvik-cache.jpg]]
+
+   - Go back to main menu and select =install zip from sdcard=. Select
+     =cm_a13_20130703.zip= file. Wait till the ROM is installed.
+    
+     #+CAPTION: Choose zip to install new ROM
+     #+NAME: Choose zip to install new ROM
+     #+ATTR_HTML: alt="Choose zip to install new ROM"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/choose-zip.jpg]]
+
+     #+CAPTION: Install CyanogenMod ROM
+     #+NAME: Install CyanogenMod ROM
+     #+ATTR_HTML: alt="Install CyanogenMod ROM"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/install-cm.jpg]]
+
+     #+CAPTION: Install CyanogenMod ROM
+     #+NAME: Install CyanogenMod ROM
+     #+ATTR_HTML: alt="Install CyanogenMod ROM"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/installing-cm.jpg]]
+
+   - Now choose =gapps-jb-20121011-signed.zip= file to install Google
+     apps.
+
+     #+CAPTION: Install g-apps
+     #+NAME: Install g-apps
+     #+ATTR_HTML: alt="Install g-apps"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/install-g-apps.jpg]]
+
+   - Finally go back to main menu and select =reboot system now=.
+
+** Bug fixes
+*** Inverted Touchscreen
+   - To fix touch screen issue, you must know the exact name of your touchscreen module.
+   - Download the suitable module for your tablet.
+   - Copy =zip file= to internal sdcard(For example =gt811.zip=).
+   - Boot into =recovery= and install it.
+
+    #+CAPTION: Install touchscreen module
+    #+NAME: Install touchscreen module
+    #+ATTR_HTML: alt="Install touchscreen module"
+    #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+
+    [[./aakash-cm-screenshots/installing-touch-driver.jpg]]
+
+    #+CAPTION: Install touchscreen module
+    #+NAME: Install touchscreen module
+    #+ATTR_HTML: alt="Install touchscreen module"
+    #+ATTR_HTML: width="600" height="460" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+
+    [[./aakash-cm-screenshots/touch-driver-installed.jpg]]
+
+   - Finally reboot the tablet.
+
+*** Camera
+   - Download =camera= module for your tablet.
+   - Copy =zip file= to internal sdcard(For example, =gc0308.zip= in
+     this case).
+   - Boot into =recovery= and install it.
+
+*** G-sensor
+   - Download =G-sensor= module for your tablet.
+   - Copy =zip file= to internal sdcard(For example, =mxc622x.zip=).
+   - Boot into =recovery= and install it.
+     
+** Downloads
+  - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTSU1CTTRDVjN1RGc][CWM]]
+  - [[https://drive.google.com/uc?id=0BwmlxsGXffwTVEQ2RzBFc2RoUDA&export=download][Cyanogenmod 10]]
+  - [[https://drive.google.com/uc?id=0BwmlxsGXffwTdFkxUzZ3WHBZTXc&export=download][G-apps]]
+  - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTSXpYeE0wTWREVFU][Touchscreen]]
+  - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTLThhcks5c2dScGc][Camera]]
+  - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTT2gxT0YzUTRUb0k][G-sensor]]
+
+
+#+./aakash-cm-screenshots/grant-perm.png http://nutannivate.files.wordpress.com/2014/03/wpid-grant-perm.png
+#+./aakash-cm-screenshots/install-recovery.png http://nutannivate.files.wordpress.com/2014/03/wpid-install-recovery.png
+#+./aakash-cm-screenshots/reboot-recovery.png http://nutannivate.files.wordpress.com/2014/03/wpid-reboot-recovery.png
+#+./aakash-cm-screenshots/recovery-menu.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-recovery-menu.jpg
+#+./aakash-cm-screenshots/wipe-data.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-wipe-data.jpg
+#+./aakash-cm-screenshots/wipe-dalvik-cache.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-wipe-dalvik-cache.jpg
+#+./aakash-cm-screenshots/choose-zip.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-choose-zip.jpg
+#+./aakash-cm-screenshots/install-cm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-install-cm.jpg
+#+./aakash-cm-screenshots/installing-cm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-installing-cm.jpg
+#+./aakash-cm-screenshots/install-g-apps.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-install-g-apps.jpg
+#+./aakash-cm-screenshots/installing-touch-driver.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-installing-touch-driver.jpg
+#+./aakash-cm-screenshots/touch-driver-installed.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-touch-driver-installed.jpg
