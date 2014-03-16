@@ -5,11 +5,11 @@
 #+CATEGORY: blogs
 #+TAGS: android
 #+DESCRIPTION: How to flash custom rom (android v2.3) on micromax A45(Superfone Punk)
-#+TITLE: Flash Xtream mod-2 on Micromax A45(Superfone Punk)
+#+TITLE: Flash custom ROM on Micromax A45(Superfone Punk)
 #+AUTHOR:    Nutan Nivate
 #+EMAIL:     nutannivate@gmail.com
 #+DATE:      2014-03-04 Tue
-#+KEYWORDS: micromax, a45, xtream mode-2, superfone punk, flash
+#+KEYWORDS: micromax, a45, xtreme mod v2.0, superfone punk, flash
 #+LANGUAGE:  en
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
@@ -19,7 +19,7 @@
 #+LINK_HOME: 
 #+XSLT:
 
-*Xtream mod-2* is based on Android 2.3.6(Gingerbread) but it is better
+Custom ROM *Xtreme mod-2* is based on Android 2.3.6(Gingerbread) but it is better
 than Micromax's stock ROM. No Google apps need to be installed. Make
 sure you satisfy below requirements and download essential files from
 /Download/ section.
@@ -128,9 +128,9 @@ sure you satisfy below requirements and download essential files from
      called =Superuser= in application list. If the application
      exists, which means that your phone is rooted.
 	
-** Install custom ROM (Xtream-Mod 2)
+** Install custom ROM (Xtreme-Mod 2)
    - Switch off your phone.
-   - Copy =Xtream-Mod 2(Sahil11).zip= file on the SD-card and insert
+   - Copy =Xtreme-Mod 2(Sahil11).zip= file on the SD-card and insert
      it in your phone. *Do not* extract this file.
    - Now press =volume UP + volume DOWN + Power key= keys at the same
      time to enter in to recovery mode.
@@ -188,7 +188,7 @@ sure you satisfy below requirements and download essential files from
      [[./a45-screenshots/cwm-wipe-dalvic-cache.jpg]]
    
    - Now from the main menu, select =apply update from sdcard= and
-     choose =Xtream-Mod 2(Sahil11).zip= file.
+     choose =Xtreme-Mod 2(Sahil11).zip= file.
    - Wait till the ROM is flashed and reboot your phone.
    
      #+CAPTION: About phone
@@ -213,7 +213,7 @@ sure you satisfy below requirements and download essential files from
    3. [[http://www.mediafire.com/download/rbdm97ub879p48n/A45-Root-Andro-park.rar][A45-Root-Andro-park.rar]]
    4. [[http://androidforums.com/attachments/a45-punk-all-things-root/41942d1351273595-install-clockwork-mod-cwm-recovery-in-micromax-a45-100-working-a45recovery-cwm.zip][a45recovery-cwm.zip]]
    5. [[http://www.mediafire.com/download/v9232vek0wv1twi/UnlockRoot_v2.3.rar][UnlockRoot_v2.3.rar]]
-   6. [[http://www.mediafire.com/download/cr4nmmdc1ld38a7/Xtreme-Mod+2%28Sahil11%29.zip][Xtream-Mod 2.zip]]
+   6. [[http://www.mediafire.com/download/cr4nmmdc1ld38a7/Xtreme-Mod+2%28Sahil11%29.zip][Xtreme-Mod 2.zip]]
    
 
 #+./a45-screenshots/usb-driver-installation.png http://nutannivate.files.wordpress.com/2014/03/wpid-usb-driver-installation5.png
