@@ -35,6 +35,33 @@
    - Go into recovery mode.
    - Flash the =.zip=
    - Reboot and you are done.
+   
+   #+CAPTION: Switch memories
+   #+NAME: Switch memories
+   #+ATTR_HTML: alt="Switch memories"
+   #+ATTR_HTML: width="650" height="500" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./switch-memories/switch-memories.jpg]]
+   
+   - To confirm, go to =Settings= >> =Storage= and have a look at
+     internal and external storage spaces.
+
+   #+CAPTION: After Swapping memories
+   #+NAME: After Swapping memories
+   #+ATTR_HTML: alt="After Swapping memories"
+   #+ATTR_HTML: width="650" height="500" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+
+   [[./switch-memories/internal-storage.png]]
+
+   #+CAPTION: After Swapping memories
+   #+NAME: After Swapping memories
+   #+ATTR_HTML: alt="After Swapping memories"
+   #+ATTR_HTML: width="650" height="500" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+
+   [[./switch-memories/external-storage.png]]
 
 ** Downloads
    - [[https://doc-0k-7k-docs.googleusercontent.com/docs/securesc/5nqf18icv03er97qra6h6trcicmtb665/4rm0prcrk90cuq0jcsq5o3krck1rertq/1394949600000/06372050993406402326/06372050993406402326/0BwmlxsGXffwTSkYxTlNZekFlSkE?h=16653014193614665626&e=download][switch-memories.zip for Aakash tablet]]
@@ -46,3 +73,9 @@
    - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTSkNlRGRPR09nM28][Samsung Galaxy S3 (i9300)]]
 
    - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTSkNlRGRPR09nM28][Samsung Galaxy SL (i9003)]]
+
+
+
+#+./switch-memories/switch-memories.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-switch-memories1.jpg
+#+./switch-memories/internal-storage.png http://nutannivate.files.wordpress.com/2014/03/wpid-internal-storage.png
+#+./switch-memories/external-storage.png http://nutannivate.files.wordpress.com/2014/03/wpid-external-storage1.png

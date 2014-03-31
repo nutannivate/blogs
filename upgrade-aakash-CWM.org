@@ -93,14 +93,63 @@
 
    - If your device has 8 or less partitions(i.e. the last partition
      is =nandh=), then /do not install/ CWM from download list
-     mentioned below.     
+     mentioned below.
+
+     #+CAPTION: CPU info
+     #+NAME: CPU info
+     #+ATTR_HTML: alt="CPU info"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/cpuinfo.png]]
 
 *** Install ClockWorkRecovey
 **** Using Recovery mode  
-   - Copy the zip file to your internal or external SD card. 
-   - Also download and copy =cm_a13_20130703.zip= and
-     =gapps-jb-20121011-signed.zip= files.
-   - Reboot into =Recovery=, then choose =install zip from sdcard=.
+   - Copy the downloaded CWM zip file to =external= SD card. 
+   
+   - To boot into =Recovery=, go to =Settings >> Backup & reset= and
+     select =Recovery Mode=.
+
+     #+CAPTION: Reboot recovery
+     #+NAME: Reboot recovery
+     #+ATTR_HTML: alt="Reboot recovery"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/default-recovery-menu.png]]
+
+   - The default recovery menu looks like below,
+     
+     #+CAPTION: Default recovery menu
+     #+NAME: Default recovery menu
+     #+ATTR_HTML: alt="Default recovery menu"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/default-cwm.jpg]]
+
+    - This recovery menu does not have =backup and restore=, =mounts
+      and storage= and =advanced= options. To install CWM-recovery
+      manually, select =apply update from external storage= and then
+      select CWM zip.
+
+     #+CAPTION: Install recovery
+     #+NAME: Install recovery
+     #+ATTR_HTML: alt="Install recovery"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/install-cwm.jpg]]
+
+     #+CAPTION: Install recovery
+     #+NAME: Install recovery
+     #+ATTR_HTML: alt="Install recovery"
+     #+ATTR_HTML: width="700" height="460" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/cwm-installed.jpg]]
+
+     - To apply the changes, select =reboot now=.
 
 **** From a Running System
    - Unzip the file and copy =recovery.img=, =install-recovery.sh= and
@@ -155,6 +204,17 @@
        for boot logo to appear.
 	
 **** Method 2
+     - Go to =Settings >> Backup & reset= and select =Recovery Mode=.
+
+     #+CAPTION: CWM recovery
+     #+NAME: CWM recovery
+     #+ATTR_HTML: alt="CWM recovery"
+     #+ATTR_HTML: width="800" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+     
+     [[./aakash-cm-screenshots/default-recovery-menu.png]]
+
+**** Method 3
      - Visit the directory to where you stored the CWM files and type
 
      #+begin_src sh
@@ -170,13 +230,40 @@
      [[./aakash-cm-screenshots/reboot-recovery.png]]
 
    - This will reboot in to recovery mode.
+
+     #+CAPTION: CWM recovery
+     #+NAME: CWM recovery
+     #+ATTR_HTML: alt="CWM recovery"
+     #+ATTR_HTML: width="800" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/new-cwm.jpg]]
 	
 *** Backup existing ROM
    - Within recovery mode, Select =backup and restore= -> =backup= to
      backup your existing ROM. Wait for few minutes for the process to
      complete.
 
+     #+CAPTION: backup and restore
+     #+NAME: backup and restore
+     #+ATTR_HTML: alt="backup and restore"
+     #+ATTR_HTML: width="800" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/backup-menu.jpg]]
+
+     #+CAPTION: backup and restore
+     #+NAME: backup and restore
+     #+ATTR_HTML: alt="backup and restore"
+     #+ATTR_HTML: width="800" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./aakash-cm-screenshots/backup-rom.jpg]]
+
 ** Install CyanogenMod ROM
+   - Download and copy =cm_a13_20130703.zip= and
+     =gapps-jb-20121011-signed.zip= files to internal/external sdcard.
+
    - Assuming you have performed the backup, and you are in CWM's
      recovery menu.
 
@@ -294,15 +381,23 @@
   - [[https://drive.google.com/?tab=mo&authuser=0#folders/0BwmlxsGXffwTT2gxT0YzUTRUb0k][G-sensor]]
 
 
-#+./aakash-cm-screenshots/grant-perm.png http://nutannivate.files.wordpress.com/2014/03/wpid-grant-perm.png
-#+./aakash-cm-screenshots/install-recovery.png http://nutannivate.files.wordpress.com/2014/03/wpid-install-recovery.png
-#+./aakash-cm-screenshots/reboot-recovery.png http://nutannivate.files.wordpress.com/2014/03/wpid-reboot-recovery.png
-#+./aakash-cm-screenshots/recovery-menu.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-recovery-menu.jpg
-#+./aakash-cm-screenshots/wipe-data.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-wipe-data.jpg
-#+./aakash-cm-screenshots/wipe-dalvik-cache.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-wipe-dalvik-cache.jpg
-#+./aakash-cm-screenshots/choose-zip.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-choose-zip.jpg
-#+./aakash-cm-screenshots/install-cm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-install-cm.jpg
-#+./aakash-cm-screenshots/installing-cm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-installing-cm.jpg
-#+./aakash-cm-screenshots/install-g-apps.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-install-g-apps.jpg
-#+./aakash-cm-screenshots/installing-touch-driver.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-installing-touch-driver.jpg
-#+./aakash-cm-screenshots/touch-driver-installed.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-touch-driver-installed.jpg
+#+./aakash-cm-screenshots/cpuinfo.png http://nutannivate.files.wordpress.com/2014/03/wpid-cpuinfo1.png
+#+./aakash-cm-screenshots/default-recovery-menu.png http://nutannivate.files.wordpress.com/2014/03/wpid-default-recovery-menu1.png
+#+./aakash-cm-screenshots/default-cwm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-default-cwm1.jpg
+#+./aakash-cm-screenshots/install-cwm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-install-cwm1.jpg
+#+./aakash-cm-screenshots/cwm-installed.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-cwm-installed1.jpg
+#+./aakash-cm-screenshots/grant-perm.png http://nutannivate.files.wordpress.com/2014/03/wpid-grant-perm2.png
+#+./aakash-cm-screenshots/install-recovery.png http://nutannivate.files.wordpress.com/2014/03/wpid-install-recovery2.png
+#+./aakash-cm-screenshots/reboot-recovery.png http://nutannivate.files.wordpress.com/2014/03/wpid-reboot-recovery2.png
+#+./aakash-cm-screenshots/new-cwm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-new-cwm1.jpg
+#+./aakash-cm-screenshots/backup-menu.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-backup-menu1.jpg
+#+./aakash-cm-screenshots/backup-rom.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-backup-rom1.jpg
+#+./aakash-cm-screenshots/recovery-menu.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-recovery-menu2.jpg
+#+./aakash-cm-screenshots/wipe-data.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-wipe-data2.jpg
+#+./aakash-cm-screenshots/wipe-dalvik-cache.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-wipe-dalvik-cache2.jpg
+#+./aakash-cm-screenshots/choose-zip.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-choose-zip2.jpg
+#+./aakash-cm-screenshots/install-cm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-install-cm2.jpg
+#+./aakash-cm-screenshots/installing-cm.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-installing-cm2.jpg
+#+./aakash-cm-screenshots/install-g-apps.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-install-g-apps2.jpg
+#+./aakash-cm-screenshots/installing-touch-driver.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-installing-touch-driver2.jpg
+#+./aakash-cm-screenshots/touch-driver-installed.jpg http://nutannivate.files.wordpress.com/2014/03/wpid-touch-driver-installed2.jpg
