@@ -4,10 +4,10 @@
 #+TITLE: Swap internal and external memory on Android
 #+AUTHOR: Nutan Nivate
 #+EMAIL: nutannivate@gmail.com
-#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORY: blogs
 #+TAGS: android, adb
-#+KEYWORDS: android, memory, swap
+#+KEYWORDS: android, memory, swap, switch
 #+DESCRIPTION: How to swap internal and external memory on Android
 #+LANGUAGE:  en
 
@@ -17,6 +17,7 @@
    media. Soon there is no space left for new applications and you
    are out of your phone's memory.
 
+#+HTML: <!--more-->
 ** What can we do to increase this space?
    Most Android device can support external micro-SD card up to
    32GB. Developers have figured out a way to swap the internal memory
