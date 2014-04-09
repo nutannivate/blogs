@@ -1,0 +1,133 @@
+#+BLOG: nutannivate.wordpress.com
+#+POSTID: 296
+#+BLOG: nutannivate.wordpress.com
+#+DATE: [2014-04-06 Sun 12:36]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: android, dex2jar, apk
+#+DESCRIPTION: How to get source (java and xml files) from .apk file?
+#+TITLE: Extract source code from APK file
+#+AUTHOR:    Nutan Nivate
+#+EMAIL:     nutannivate@gmail.com
+#+KEYWORDS: apk, dex2jar, apktool, decompile, jad, jd-gui
+#+LANGUAGE:  en
+#+OPTIONS:   toc:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+APK file is a zip file containing all program resource file, we can
+now get complete source code from APK file with ease. Following are
+steps to get java code and xml files from an APK.
+
+#+HTML: <!--more-->
+
+** Step 1: Rename APK file
+   - Rename the =.apk= file with the extension =.zip=. For example,
+     =demofile.apk.zip=.
+
+** Step 2: Getting java files from apk
+*** Decomiling APK to Dex format
+   - Create a new folder, say =demo= and extract the zip file in that
+     folder.
+
+   - Download =dex2jar-0.0.9.*.zip= and extract that zip file in
+     folder =demo=.
+
+   - Open command prompt, Navigate to directory =dex2jar-0.0.9.*= and
+     type,
+
+     #+begin_src sh
+       sh dex2jar.sh ../demofile.apk/classes.dex
+     #+end_src
+
+     and press enter. This will generate =classes_dex2jar.jar= file in
+     the =demofile.apk= folder.
+
+*** Decompiling the Jar files to Java
+**** Method 1: Use JavaDecompiler (JD)
+   - Now download java decompiler =jd-gui-*=, extract it and
+     start(double click) =jd-gui.exe=.
+
+   - From =jd-gui= window browse the generated =classes_dex2jar.jar=
+     file, this will give all the class files.
+
+   - From the File menu select =Save all sources= this will generate a
+     zip file named =classes_dex2jar.src.zip= consisting of all
+     packages and java files.
+   
+   - Extract that zip file =classes_dex2jar.src.zip= and you will get
+     all java files of the application.
+
+**** Method 2: Use JAD
+     - Download =jad-*.zip= and extract this file.
+
+     - Extract contents of =classes_dex2jar.zip= file on to a folder
+       named =src=. Keep this folder in the same directory where JAD
+       folder is present.
+
+     - Open the command prompt, navigate to the =jAD= folder and type,
+
+       #+begin_src sh
+       ./jad -o -r -sjava -dsrc ../src/**/*.class
+       #+end_src
+ 
+     - Note: =jad= On Windows PC.
+
+** Step 3: Getting xml files from APK
+   - Download =apktool= and =apktool install= and extract those file in
+     seperate folder, name it as =demoxml=.
+
+   - Downlaod =framework-res.apk= and place this APK and your APK file
+     in =demoxml= folder.
+
+   - Open command prompt, navigate to the above extracted
+     directory =apktool install= where apktool is stored and type the
+     command,
+     
+     #+begin_src sh
+       chown -R username:username apktool
+       chown -R username:username aapt
+       sudo mv apktool /usr/local/bin
+       sudo mv aapt /usr/local/bin
+       sudo chmod +x apktool
+       sudo chmod +x aapt
+     #+end_src
+
+   - On the same command prompt, navigate to the directory =apktool=
+     and type the command,
+
+     #+begin_src sh
+       chown -R username:username apktool.jar
+       sudo mv apktool.jar /usr/local/bin
+       sudo chmod +x apktool.jar
+     #+end_src
+
+   - Navigate back to the =apktool install= directory and type the
+     following command,
+
+     #+begin_src sh
+       apktool if ../framework-res.apk
+     #+end_src
+
+   - Type the next command,
+
+     #+begin_src sh
+       apktool d ../demofile.apk 
+     #+end_src
+   
+     Note: =demofile= is name of your apk file.
+
+   - This will generate a folder of name =demofile= in current
+     directory where all xml files would be stored in =res/layout=
+     folder.
+
+** Downloads
+   - [[http://sourceforge.net/projects/dex2jar.mirror/][dex2jar]]
+   - [[http://jd.benow.ca/][jd-gui]]
+   - [[http://varaneckas.com/jad/][JAD]]
+   - [[http://code.google.com/p/android-apktool/downloads/list][apktool and apktool-install]]
+   - [[http://www.4shared.com/mobile/fKigopxT/framework-res.html][framework-res.apk]]
